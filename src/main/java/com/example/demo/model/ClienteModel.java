@@ -3,26 +3,33 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cine")
-public class CineModel {
+@Table(name = "cliente")
+public class ClienteModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "cine_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cliente_id")
     private long id;
-    @Column(name = "cine_nombre")
+    @Column(name = "cliente_nombre")
     private String nombre;
-    @Column(name = "cine_apellido")
+    @Column(name = "cliente_apellido")
     private String apellido;
-    @Column(name = "cine_correo")
+
+    @Column(name = "cliente_correo")
     private String correo;
 
+    @Column(name = "cliente_documento")
+    private String tipoDocumento;
 
-    public CineModel(){
+    @Column(name = "cliente_edad")
+    private int edad;
+
+
+    public ClienteModel(){
 
     }
 
-    public CineModel(String nombre, String apellido, String correo) {
+    public ClienteModel(String nombre, String apellido, String correo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
