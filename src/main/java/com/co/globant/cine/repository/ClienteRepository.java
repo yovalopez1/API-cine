@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.co.globant.cine.repository;
 
-import com.example.demo.model.ClienteModel;
+import com.co.globant.cine.model.ClienteModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

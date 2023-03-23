@@ -1,9 +1,11 @@
-package com.example.demo.model;
+package com.co.globant.cine.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name = "cliente")
+@Table(name = "clientes")
 public class ClienteModel {
 
     @Id
@@ -18,21 +20,26 @@ public class ClienteModel {
     @Column(name = "cliente_correo")
     private String correo;
 
-    @Column(name = "cliente_documento")
+    @Column(name = "cliente_tipo")
     private String tipoDocumento;
+
+    @Column(name="cliente-documento")
+    private long numeroDocumento;
 
     @Column(name = "cliente_edad")
     private int edad;
 
-
     public ClienteModel(){
 
     }
-
-    public ClienteModel(String nombre, String apellido, String correo) {
+    public ClienteModel(long id, String nombre, String apellido, String correo, String tipoDocumento, long numeroDocumento, int edad) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.edad = edad;
     }
 
     public long getId() {
@@ -40,7 +47,7 @@ public class ClienteModel {
     }
 
     public void setId(long id) {
-        id = id;
+        this.id = id;
     }
 
     public String getNombre() {
@@ -65,5 +72,29 @@ public class ClienteModel {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public long getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(long numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 }

@@ -1,6 +1,5 @@
-package com.example.demo.model;
+package com.co.globant.cine.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,14 +16,26 @@ public class ReservaModel {
     @Column(name = "reserva_hora")
     private String horaReserva;
 
-    @Column(name = "reserva_precio")
-    private String precioReserva;
+    @Column(name = "reserva_puesto")
+    private int puestosReserva;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    ClienteModel cliente;
 
-    public ReservaModel( String fechaReserva, String horaReserva, String precioReserva) {
+    @ManyToOne
+    @JoinColumn(name = "pelicula_id")
+    PeliculaModel pelicula;
+
+    public ReservaModel(){
+
+    }
+
+    public ReservaModel(long idReserva, String fechaReserva, String horaReserva, int puestosReserva, ClienteModel cliente) {
+        this.idReserva = idReserva;
         this.fechaReserva = fechaReserva;
         this.horaReserva = horaReserva;
-        this.precioReserva = precioReserva;
+        this.puestosReserva = puestosReserva;
     }
 
     public long getIdReserva() {
@@ -51,11 +62,12 @@ public class ReservaModel {
         this.horaReserva = horaReserva;
     }
 
-    public String getPrecioReserva() {
-        return precioReserva;
+    public int getPuestosReserva() {
+        return puestosReserva;
     }
 
-    public void setPrecioReserva(String precioReserva) {
-        this.precioReserva = precioReserva;
+    public void setPuestosReserva(int puestosReserva) {
+        this.puestosReserva = puestosReserva;
     }
+
 }
