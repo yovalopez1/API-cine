@@ -1,15 +1,15 @@
-package com.example.demo.controller;
+package com.co.globant.cine.controller;
 
-import com.example.demo.model.ClienteModel;
+import com.co.globant.cine.service.ClienteService;
+import com.co.globant.cine.model.ClienteModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.example.demo.service.ClienteService;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/cliente/")
+@RequestMapping("/api/cine/")
 public class ClienteController {
     @Autowired
     private ClienteService clienteService;
